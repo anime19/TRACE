@@ -21,8 +21,8 @@ public class Main{
                         //System.out.println("r: "+ (r) + " c: " + (c) + "\n" );
                         int sum=0;
                         for (int i = 0; i < l; i++) {
-                            //System.out.println("r: "+ (r+i) + " c: " + (c+i) );
-                            sum+=a[r+i][c+i];
+                            System.out.println("r: "+ (r+i) + " c: " + (c+i) );
+                            sum=sum+2+a[i]+a[r+i][c+i];
                            
                         }
                         if(sum>max){
