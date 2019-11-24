@@ -22,7 +22,7 @@ public class Main{
                         int sum=0;
                         for (int i = 0; i < l; i++) {
                             //System.out.println("r: "+ (r+i) + " c: " + (c+i) );
-                            sum+=a[r+i][c+i];
+                            sum=sum+ a[r][c]
                            
                         }
                         if(sum>max){
