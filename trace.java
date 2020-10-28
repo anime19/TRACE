@@ -9,32 +9,35 @@ class Codechef
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		 Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        for(int i = 0 ; i < t ; i++){
-            int n = sc.nextInt();
-            int x[][] = new int[n][n];
-            for(int j = 0 ; j < n ; j++){
-                for(int k = 0 ; k < n ; k++){
-                    x[j][k] = sc.nextInt();
-                }
-            }
-            int l = 1 , max = 0;
-            for ( l = 1 ; l <= n ; l++){
-               for (int r = 0; r < n-l+1 ; r++) {
-                    for (int c = 0; c < n-l+1; c++) {
-                        int sum=0;
-                        for (int k = 0; k < l; k++) {
-                            sum+=x[r+k][c+k];
-
-                        }
-                        if(sum>max){
-                            max=sum;
-                        }
-                    }
-                } 
-            }
-            System.out.println(max);
-        }
+		Scanner sc = new Scanner(System.in);
+		
+		int t, n, a[][], i, j;
+		
+		t = sc.nextInt();
+		
+		while(t-->0)
+		{
+		    n = sc.nextInt();
+		    a = new int[n][n];
+		    
+		    for(i = 0; i < n; i++)
+		        for(j = 0; j < n; j++)
+		            a[i][j] = sc.nextInt();
+		            
+		    for(i = n-2; i >= 0; i--)
+		        for(j = n-2; j >= 0; j--)
+		            a[i][j] += a[i+1][j+1];
+		            
+		    j = 0;
+		    for(i = 0; i < n; i++)
+		        if(a[0][i] > j)
+		            j = a[0][i];
+		            
+		    for(i = 1; i < n; i++)
+		        if(a[i][0] > j)
+		            j = a[i][0];
+		            
+		    System.out.println(j);
+		}
 	}
 }
