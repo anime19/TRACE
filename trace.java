@@ -1,37 +1,40 @@
-import java.util.Scanner;
+/* package codechef; // don't place package name! */
 
-public class Main{
-    public static void main(String[] args) {
-        
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        for(int t=0;t<T;t++){
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		 Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i = 0 ; i < t ; i++){
             int n = sc.nextInt();
-            int a[][] = new int[n][n];
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    a[i][j] = sc.nextInt();
+            int x[][] = new int[n][n];
+            for(int j = 0 ; j < n ; j++){
+                for(int k = 0 ; k < n ; k++){
+                    x[j][k] = sc.nextInt();
                 }
             }
-            int l=1, max=0;
-            for ( l = 1; l <= n; l++) {
-                
-                for (int r = 0; r < n-l+1 ; r++) {
+            int l = 1 , max = 0;
+            for ( l = 1 ; l <= n ; l++){
+               for (int r = 0; r < n-l+1 ; r++) {
                     for (int c = 0; c < n-l+1; c++) {
-                        //System.out.println("r: "+ (r) + " c: " + (c) + "\n" );
                         int sum=0;
-                        for (int i = 0; i < l; i++) {
-                            //System.out.println("r: "+ (r+i) + " c: " + (c+i) );
-                            sum=sum+ a[r][c]
-                           
+                        for (int k = 0; k < l; k++) {
+                            sum+=x[r+k][c+k];
+
                         }
                         if(sum>max){
                             max=sum;
                         }
                     }
-                }   
+                } 
             }
             System.out.println(max);
         }
-    }
+	}
 }
